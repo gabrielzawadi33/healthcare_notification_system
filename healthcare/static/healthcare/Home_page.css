@@ -1,0 +1,244 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+nav{
+    width: 100%;
+    background-color: white;
+    height: 80px;
+}
+a,li,ul{
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    font-size: 25px;
+    padding-left:40px;
+    color: black;  
+    line-height: 80px;
+}
+nav ul{
+    float: right;
+    margin-right: 60px;
+}
+nav ul li{
+    display: inline-block;
+    margin: 0 40px;
+    line-height: 80px;
+}
+nav ul li a{
+    color: black;
+    font-size: 13px;
+    background-color: #D9D9D9;
+    padding: 7px 13px;
+    border-radius: 10px;
+    width: 120px;
+}
+select{
+    color: black;
+    font-size: 13px;
+    background-color: #D9D9D9;
+    padding: 7px 13px;
+    border-radius: 10px;
+    width: 100px;
+}
+.active{
+    color: blue;
+}
+.checkbtn{
+    font-size: 30px;
+    color: black;
+    float: right;
+    line-height: 70px;
+    cursor: pointer;
+    margin-right: 30px;
+    display: none;
+}
+#check{
+    display: none;
+}
+.checkbtn img{
+    width: 40px;
+    height: 40px;
+}
+.main{
+    background-image: url('assets/backjpg.jpg');
+    border: 2px solid white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 420px; 
+}
+.content{
+    height: auto;
+    width: 50%;
+    margin-top: 100px;
+    margin-left: 80px;
+}
+.content h4{
+    font-size: 46px;
+}
+
+
+footer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    margin-top: 20px;
+    height: 10px;
+}
+footer .col{
+    border-right: 1px solid black;
+    text-align: center;
+}
+footer img{
+    width: 30px;
+    height: 30px;
+    margin: 10px 20px;
+    cursor: pointer; 
+}
+footer h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+footer p{
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  
+  
+  .content {
+    width: 90%; /* Increase content width for better readability */
+    margin-left: auto;
+    margin-right: auto; /* Center content horizontally */
+}
+  .content h4 {
+    font-size: 24px; /* Adjust heading size for mobile */
+  }
+ 
+  body{
+    font-size: 16px;
+  }
+  .checkbtn{
+    display: block;
+}
+ul{
+    position: fixed;
+    width: 100%;
+    height: auto;
+    background-color: #D9D9D9;
+    top: 80px;
+    text-align: center;
+    left: -100%;
+    transition: all .5s;
+}
+nav ul li{
+    display: block;
+}
+#check:checked ~  ul{
+    left: 0;
+}
+}
+
+@media (max-width: 950px){
+    nav ul{
+        margin-right: 10px;
+    }
+    nav ul li{
+        margin: 0 20px;
+    }
+    }
+
+@media (max-width: 480px) {
+  /* Styles for very small screens */
+  footer .col {
+    font-size: 12px; /* Reduce font size for better fit */
+    
+}
+  footer img {
+    width: 20px;
+    height: 20px; /* Reduce image size */
+  }
+  
+  
+}
+
+
+
+
+/* .content button{
+    color: white;
+    background-color: #5CADDA;
+    border-radius: 5px;
+    width: 160px;
+    height: 35px;
+} */
+
+
+
+
+
+button {
+    --color: #5CADDA;
+    font-family: inherit;
+    display: inline-block;
+    width: 25vh;
+    height: 2.6em;
+    line-height: 2.5em;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #36dddd;
+    transition: color .5s;
+    z-index: 1;
+    font-size: 14px;
+    border-radius: 6px;
+    background: #5CADDA;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 10px;
+   }
+   
+   button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: #12e4d9;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   button:hover {
+    color: #ffffff;
+   }
+   
+   button:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   button:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   button:active:before {
+    background: #3a0ca3;
+    transition: background 0s;
+   }
+   button a{
+    text-decoration: none;
+    color: white;
+   }

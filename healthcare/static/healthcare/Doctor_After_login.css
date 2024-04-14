@@ -1,0 +1,370 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+}
+.main{
+    width: 90%;
+    height: 500px;
+    display: flex;
+    margin: 30px auto;
+    justify-content: space-between;
+}
+aside{
+    width: 20%;
+    height: 100%;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+aside h4{
+    text-align: center;
+    margin-top: 10px;
+}
+aside li{
+    list-style: none;
+    margin-top: 20px;
+}
+aside li a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    padding: 10px;
+}
+ li a.active{
+    color: blue;
+}
+aside ul{
+    padding-left: 15px;
+}
+aside ul img{
+    width: 30px;
+    height: 30px;
+
+}
+main{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #EEF1F2;
+    border-radius: 10px;
+}
+.divider_1{
+    height: 100%;
+    width: 30%;
+}
+.profile{
+    background-image: url('assets/doctor.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50%;
+}
+.patient_list{
+    height: 48%;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    overflow-y: scroll; 
+}
+.patient_list::-webkit-scrollbar{
+    width: 0;
+}
+.patient_title{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    font-size: 14px;
+    width: 100%;
+}
+.patient_title h4{
+    font-size: 17px;
+    padding-top: 10px;
+    margin-top: auto;
+}
+.day{
+    background-color: #D9D9D9;
+    display: flex;
+    height: 25px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.patient_list .names{
+    display: flex;
+    justify-content: start;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+.name_circle{
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    justify-items: center;
+    text-align: center;
+    background-color: #D9D9D9;
+    padding-top: 5px;
+    margin-top: 5px; 
+}
+.name{
+    padding-top: 6px;
+    margin-left: 10px;
+    color: blue;
+}
+.divider_2{
+    height: 100%;
+    width: 65%;
+    margin-right: 10px;
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+}
+.total_patient{
+    width: 45%;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+.total_patient img{
+    width: 50px;
+}
+.total_patient p{
+    margin: 5px;
+}
+.total_no{
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+    margin-bottom: 0px;
+}
+.title_today{
+    text-align: center;
+}
+.total_today{
+    width: 45%;
+    background-color: #FFFFFF;
+}
+.upcoming{
+    height: 23%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+
+}
+.upcoming_content{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 10px;
+    width: 100%;
+}
+.upcoming_content .name{
+    padding-top: 6px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: blue;
+}
+.upcoming h4{
+    margin-left: 40px;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+.time{
+        padding-left: 0px;
+        margin-left: 0px;
+        background-color: #D9D9D9;
+        border-radius: 10px;
+        width: 70px;
+        text-align: center;
+        height: 22px;
+}
+.appointment{
+    height: 53%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+.appointment_title{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 10px;
+}
+.appointment_title h4{
+    font-size: 17px;
+    margin-right: 15%;
+    margin-top: 10px;
+}
+.appointment_subtitle{
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 0px;
+}
+.appointment_subtitle h5{
+    margin-top: 0px;
+}
+
+
+
+                                        /* nav bar */
+
+nav{
+    width: 100%;
+    height: 80px;
+}
+a,li,ul{
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    font-size: 25px;
+    padding-left:40px;
+    color: black;  
+    line-height: 80px;
+}
+nav ul li{
+    display: none;
+    margin: 0 20px;
+    line-height: 80px;
+    text-align: start;
+}
+nav ul li a{
+    color: black;
+    font-size: 14px;
+    background-color: #D9D9D9;
+    padding: 7px 13px;
+    border-radius: 10px;
+    width: 120px;
+}
+.checkbtn{
+    font-size: 30px;
+    color: black;
+    float: right;
+    line-height: 70px;
+    cursor: pointer;
+    margin-right: 30px;
+    display: none;
+}
+#check{
+    display: none;
+}
+.checkbtn img{
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 767px){
+    aside{
+        display: none;
+    }
+    .divider_1{
+        width: 50%;
+    }
+    .divider_2{
+        width:100%;
+    }
+    main{
+        width: 100%;
+    }
+    .main{
+        width: 98%;
+    }
+    .profile{
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .patient_title{
+        margin: auto;
+        width: 100%;
+        font-size: 10px;
+        padding: 0px 0px;
+    }
+    .patient_title h4{
+        font-size: 13px;
+    }
+    .patient_list .names{
+        padding-left: 0px;
+    }
+    .patient_list .names .name{
+        font-size: 12px;
+    }
+    .total_patient p{
+        margin: 0px;
+        margin-top: 5px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .total_patient img{
+        display: none;
+    }
+    .appointment{
+        font-size: 11px;
+    }
+    .upcoming_content{
+        margin: 0px;
+    }
+    .upcoming h4{
+        font-size: 15px;
+    }
+    .appointment_title h4{
+        margin-left: 10px;
+    }
+    .name_circle{
+        width: 30px;
+        height: 20px;  
+        font-size: 11px;
+        padding-top: 0px;
+    }
+    .patient_list{
+        margin-left: 5px;
+    }
+    .appointment{
+        margin-left: 10px;
+    }
+    .appointment_subtitle h5{
+        font-size: 10px;
+        padding-right: 15px;
+        font-weight: bold;
+    }
+
+
+
+
+                                                /* nav bar */
+
+    .checkbtn{
+        display: block;
+    }
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #D9D9D9;
+        top: 80px;
+        text-align: center;
+        left: -100%;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+    }
+    #check:checked ~  ul{
+        left: 0;
+    }
+
+    nav ul img{
+        width: 30px;
+        height: 100%;
+    }
+
+}

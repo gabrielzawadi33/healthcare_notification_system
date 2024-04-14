@@ -1,0 +1,91 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+}
+.main{
+    width: 75%;
+    height: 540px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    background-color: #D9D9D9;
+    box-shadow: 15px 25px 30px #bebebe,
+                -15px -15px 30px #ffffff;
+}
+.doctor_profile{
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 50%;
+    background-image: url("{% static 'assets/nurse.png' %}");
+    
+}
+.doctor_form {
+    border-radius: 20px;
+    height: 90%;
+    width: 35%;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 2%;
+    box-shadow: 15px 25px 30px #bebebe,
+                -15px -15px 30px #bebebe;
+}
+.doctor_form form{
+    background-color: white;
+    height: 90%;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+.doctor_form form h4{
+    text-align: center;
+    color: #1142ED;
+}
+.doctor_form form input{
+    padding-top: 0;
+    width: 95%;
+    height: 23px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.doctor_form form label{
+    padding-bottom: 0;
+    font-size: 13px;
+}
+.doctor_form form input[type="submit"] {
+    width: 120px;
+    margin: 0 auto;
+    background-color: #5CADDA;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+input[type="submit"]:hover{
+    background-color: rgb(92, 67, 233);
+    transform: scale(1.02);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px){
+    .main{
+        display: grid;
+    }
+    .doctor_profile{
+        margin: 0 auto;
+        background-size: cover;
+        max-width: 90%;
+    }
+    .doctor_form{
+        margin: 0 auto;
+        width: 80%;
+    }
+}
+
