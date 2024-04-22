@@ -22,7 +22,7 @@ class DoctorSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Doctor
-        fields = ['name', 'IdNumber', 'email', 'password']
+        fields = ['name', 'IdNumber', 'email', 'password', 'roomNo']
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
@@ -38,3 +38,5 @@ class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
         fields = '__all__'
+
+
