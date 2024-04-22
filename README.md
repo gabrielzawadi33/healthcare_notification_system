@@ -10,7 +10,7 @@ This guide provides step-by-step instructions on how to set up and run a Django 
 
 - XAMPP installed on your system.
 - and the name you have created the database for this project.
-- Python installed on your system. You can download Python from (https://github.com/gabrielzawadi33/healthcare_notification_system.git).
+- Python installed on your system.
 - Django framework installed. You can install Django via pip:
 - make sure  you have created the virtualenvironment and is well activated
 
