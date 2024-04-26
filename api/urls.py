@@ -15,8 +15,12 @@ urlpatterns = [
     path('login_doctor/', views.login_doctor, name='login_doctor'),
     path('doctor_dashboard/', views.doctor_dashboard, name='doctor_dashboard'),
     path('doctors/<int:doctor_id>/patients/', PatientsByDoctorView.as_view()),
+    path('doctors/<int:doctor_id>/patient_list/', PatientsByDoctorView.doctor_patient_list, name='doctor_patient_list'),
     path('register_patient/', views.register_patient, name='register_patient'),
     path('patient_list/', views.patient_list, name='patient_list'),
+    path('nurse_after_login/', views.nurse_after_login, name='nurse_after_login'),
+    path('doctor_patient_list/', views.doctor_patient_list, name='doctor_patient_list'),
+
 
 
 ]

@@ -19,10 +19,10 @@
     </label>
     <label for="logo" class="logo">HEALTH CARE</label>
     <ul>
-            <li><a href="Doctor_After_login.html" class="active"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
-            <li><a href="Doctor_patient_list.html"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
-            <li><a href="Doctor_Appointment.html"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
-            <li><a href="Home_page.html"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
+            <li><a href="{% url 'doctor_dashboard' %}" class="active"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
+            <li><a href="{% url 'doctor_patient_list' doctor_id %}"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>>
+            <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+            <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
     </ul>
 </nav>
     <!-- <nav class="navbar bg-body-tertiary fixed-top">
@@ -67,10 +67,10 @@
         <aside>
             <h4>DASHBOARD</h4>
             <ul>
-              <li><a href="Doctor_After_login.html" class="active"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
-              <li><a href="Doctor_patient_list.html"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
-              <li><a href="Doctor_Appointment.html"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
-              <li><a href="Home_page.html"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
+              <li><a href="{% url 'doctor_dashboard' %}" class="active"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
+              <li><a href="{% url 'doctor_patient_list' %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
+              <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+              <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
           </ul>
         </aside>
         <main>
