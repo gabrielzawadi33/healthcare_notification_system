@@ -20,21 +20,22 @@
         </label>
         <label for="logo" class="logo">HEALTH CARE</label>
         <ul>
-                <li><a href="{% url 'doctor_dashboard' %}"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
-                <li><a href="{% url 'doctor_patient_list' %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
-                <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
-                <li><a href="{% url 'home' %}l"><img src="% static {'assets/Logout.svg' %}" alt="">Log out</a></li>
+            <li><a href="{% url 'doctor_dashboard' %}"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
+            <li><a href="{% url 'doctor_patient_list' doctor_id=request.session.user_id %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
+            <li><a href="{% url 'appointment_list' doctor_id=request.session.user_id %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+            <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
         </ul>
     </nav>
     <div class="main">
         <aside>
             <h4>DASHBOARD</h4>
-            <ul>
-                <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
-                <li><a href="{% url 'doctor_patient_list' %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
-                <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'ealthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
-                <li><a href="{% url 'home' %}"><img src="{% static 'ealthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
-            </ul>
+            
+                <ul>
+                    <li><a href="{% url 'doctor_dashboard' %}"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
+                    <li><a href="{% url 'doctor_patient_list' doctor_id=request.session.user_id %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
+                    <li><a href="{% url 'appointment_list' doctor_id=request.session.user_id %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+                    <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
+                </ul>
         </aside>
 
         <main>
@@ -59,7 +60,7 @@
                         <td>{{ patient.patient_id }}</td>
                         <td>{{ patient.date_of_birth }}</td>
                         <td>{{ patient.phone_number }}</td> <!-- Replace with actual field name for phone number -->
-                        <td><button><a href="Doctor_schedule.html">Schedule</a></button></td>
+                        <td><button><a href="{% url 'appointment_page' doctor_id=patient.doctor.id  patient_id=patient.id %}">Schedule</a></button></td>
                     </tr>
                      {% endfor %}
                 </tbody>
