@@ -70,6 +70,9 @@ form{
     height: 100%;
     display: grid;
 }
+.form_divider1 label{
+    margin-bottom: 10px;
+}
 .form_divider2{
     width: 50%;
     height: 100%;

@@ -84,3 +84,14 @@ class Patient(models.Model):
 
     class Meta:
         db_table = 'patient'
+
+
+class Appointment(models.Model):
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    appointment_date = models.DateTimeField()
+    message = models.TextField()
+
+    class Meta:
+        unique_together = ('doctor', 'patient', 'appointment_date')
+        db_table = 'appointment'

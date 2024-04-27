@@ -1,7 +1,7 @@
 from django.contrib.auth.hashers import make_password
 from django.db import IntegrityError
 from rest_framework import serializers
-from .models import Doctor, Nurse
+from .models import Appointment, Doctor, Nurse
 
 
 
@@ -39,4 +39,7 @@ class PatientSerializer(serializers.ModelSerializer):
         model = Patient
         fields = '__all__'
 
-
+class AppointmentSerualizer(serializers.ModelSerializer):
+    class Meta:
+        model = Appointment
+        fields = '__all__'

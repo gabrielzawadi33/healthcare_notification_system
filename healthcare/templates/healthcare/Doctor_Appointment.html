@@ -1,3 +1,5 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,37 +10,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Doctor_Appointment.css">
+<link rel="stylesheet" href="{% static 'healthcare/Doctor_Appointment.css' %}">
 </head>
 <body>
     <nav>
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
-            <i><img src="assets/hamburger-menu.svg" alt=""></i>
+            <i><img src="{% static 'healthcare/assets/hamburger-menu.svg' %}" alt=""></i>
         </label>
         <label for="logo" class="logo">HEALTH CARE</label>
         <ul>
-                <li><a href="Doctor_After_login.html"><img src="assets/Overview.svg" alt="">Overview</a></li>
-                <li><a href="Doctor_patient_list.html"><img src="assets/patient.svg" alt="">Patients List</a></li>
-                <li><a href="Doctor_Appointment.html"  class="active"><img src="assets/Appointment Scheduling.svg" alt="">Appointments</a></li>
-                <li><a href="Home_page.html"><img src="assets/Logout.svg" alt="">Log out</a></li>
+                <li><a href="{% url 'doctor_dashboard' %}"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
+                <li><a href="{% url 'doctor_patient_list' doctor_id=doctor_id %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
+                <li><a href="{% url 'appointment_list' doctor_id=doctor_id %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+                <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
         </ul>
     </nav>
     <div class="main">
         <aside>
             <h4>DASHBOARD</h4>
             <ul>
-                <li><a href="Doctor_After_login.html"><img src="assets/Overview.svg" alt="">Overview</a></li>
-                <li><a href="Doctor_patient_list.html"><img src="assets/patient.svg" alt="">Patients List</a></li>
-                <li><a href="Doctor_Appointment.html" class="active"><img src="assets/Appointment Scheduling.svg" alt="">Appointments</a></li>
-                <li><a href="Home_page.html"><img src="assets/Logout.svg" alt="">Log out</a></li>
+                <li><a href="{% url 'doctor_dashboard' %}"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a>
+                <li><a href="{% url 'doctor_patient_list' doctor_id=doctor_id %}"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a>
+                <li><a href="{% url 'appointment_list' doctor_id=doctor_id %}" class="active"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a>
+                <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li> 
             </ul>
         </aside>
 
         <main>
             <h4>Appointment</h4>
             <div class="table_content">
-                <table>
                 <thead>
                     <tr>
                         <th>SN</th>
@@ -49,70 +50,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Sule Salum</td>
-                        <td>143623</td>
-                        <td>03/21/2024 08:00 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Godwin Tairo</td>
-                        <td>134634</td>
-                        <td>03/21/2024 08:30 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Awatif Ahmed</td>
-                        <td>296065</td>
-                        <td>03/21/2024 09:00 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Alex Thomas</td>
-                        <td>486953</td>
-                        <td>03/21/2024 09:30 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Privatus Bizo</td>
-                        <td>497860</td>
-                        <td>03/21/2024 10:00 AM</td>
-                        <td>0787874666</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Arafat Chilamba</td>
-                        <td>690399</td>
-                        <td>03/21/2024 10:30 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Alnayan Albashir</td>
-                        <td>659493</td>
-                        <td>03/21/2024 11:00 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Sule Salum</td>
-                        <td>143623</td>
-                        <td>03/21/2024 11:30 AM</td>
-                        <td>0787874666</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Sule Salum</td>
-                        <td>143623</td>
-                        <td>03/21/2024 12:00 PM</td>
-                        <td>0787874666</td>
-                    </tr>
+                    {% for appointment in appointments %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ appointment.patient.name }}</td>
+                            <td>{{ appointment.patieent.patient_id }}</td>
+                            <td>{{ appointment.appointment_date|date:"m/d/Y H:i A" }}</td>
+                            <td>{{ appointment.patient.phone_number }}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
                 </table>
             </div>

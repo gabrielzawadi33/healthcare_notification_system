@@ -1,3 +1,5 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,29 +10,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Doctor_schedule.css">
+<link rel="stylesheet" href="{% static 'healthcare/Doctor_schedule.css' %}">
 </head>
 <body>
     <div class="main">
         <div class="profile">
-            <div class="profile_image"><img src="assets/doctor.png" alt=""></div>
+            <div class="profile_image"><img src="{% static 'healthcare/assets/doctor.png' %}" alt=""></div>
             <div class="profile_name">
-                <h4>Dr. Andrew Mbonde</h4>
+                <h4>{{doctor.name}}</h4>
                 <p>Sr. Neurologist</p>
             </div>
         </div>
         <div class="calender">
-            <form action="">
-                <div class="dateAndSms">
-                 <input type="datetime-local" id="inputDatetime" required>
-                 <div class="sms">
-                    <p>Dear patient,this is a friendly remainder for your next appointment on <span id="displayDatetime" style="color: blue;"></span> at KCMC hospital. Please arrive 30 Minutes before your appointment in order to avoid any circumstance that might delay the appointment with the doctor.</p>
-                 </div>
+            <form action="{% url 'doctor_schedule' doctor_id=doctor.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="patient_id" value="{{ patient.id }}">
+                <input type="datetime-local" id="inputDatetime" name="appointment_time" required>
+                <div class="sms">
+                    <p>Dear {{ patient.name }}, this is a friendly reminder for your next appointment on <span id="displayDatetime" style="color: blue;"></span> at KCMC hospital. Please arrive 30 Minutes before your appointment in order to avoid any circumstance that might delay the appointment with the doctor.</p>
                 </div>
-                 <button class="bt" id="bt">
+                <button class="bt" id="bt" type="submit">
                     <span class="msg" id="msg"></span>
                     SEND
                 </button>
+            </form>
             </form>
         </div>
     </div>

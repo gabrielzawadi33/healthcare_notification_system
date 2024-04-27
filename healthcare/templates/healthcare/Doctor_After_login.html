@@ -20,8 +20,10 @@
     <label for="logo" class="logo">HEALTH CARE</label>
     <ul>
             <li><a href="{% url 'doctor_dashboard' %}" class="active"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
-            <li><a href="{% url 'doctor_patient_list' doctor_id %}"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>>
-            <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+            <li><a href="{% url 'doctor_patient_list' doctor_id=doctor_id %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
+            <li><a href="{% url 'appointment_list' doctor_id=doctor_id %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+
+
             <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
     </ul>
 </nav>
@@ -69,7 +71,7 @@
             <ul>
               <li><a href="{% url 'doctor_dashboard' %}" class="active"><img src="{% static 'healthcare/assets/Overview.svg' %}" alt="">Overview</a></li>
               <li><a href="{% url 'doctor_patient_list' %}" ><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">Patients List</a></li>
-              <li><a href="{% url 'nurse_dashboard' %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
+              <li><a href="{% url 'appointment_list' doctor_id=doctor_id %}"><img src="{% static 'healthcare/assets/Appointment Scheduling.svg' %}" alt="">Appointments</a></li>
               <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
           </ul>
         </aside>
@@ -105,8 +107,8 @@
                       <img src="{% static 'healthcare/assets/today patient.svg' %}" alt="">
                       <div class="total_content">
                         <p>Today patients</p>
-                        <p class="total_no">94</p>
-                        <p class="title_today">23 Jun 2024</p> 
+                        <p class="total_no">{{ appointment_count }}</p>
+                        <p class="title_today">{{ today }}</p>
                       </div>
                     </div>
                 </div>
@@ -130,22 +132,17 @@
                   <h5>Time</h5>
                 </div>
                 <div class="appointment_patients">
+                  {% for appointment in appointments %}
                   <div class="upcoming_content">
-                    <div class="name_circle">MB</div>
-                    <div class="name">Mubark Bashr</div>
-                    <div class="time">Ongoing</div>
+                    <div class="name_circle">{{ appointment.patient.name|slice:":2" }}</div>
+                    <div class="name">{{ appointment.patient.name }}</div>
+                    <div class="time">{{ appointment.appointment_date|date:"H:i" }}</div>
                   </div>
-                  <div class="upcoming_content">
-                    <div class="name_circle">BT</div>
-                    <div class="name">Baraka Tinnoh</div>
-                    <div class="time">13:30</div>
-                  </div>
-                  <div class="upcoming_content">
-                    <div class="name_circle">LY</div>
-                    <div class="name">Lilian Yoweli</div>
-                    <div class="time">14:45</div>
-                  </div>
+                  {% endfor %}
                 </div>
+                 
+                
+                
                 </div>
             </div>
         </main>
