@@ -71,13 +71,13 @@ select{
     height: 40px;
 }
 .main{
-    background-image: url('assets/backjpg.jpg');
+    background-image: url('assets/backgroundNew4.jpg');
     border: 2px solid white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 420px; 
+    height: 500px; 
 }
 .content{
     height: auto;
@@ -148,6 +148,23 @@ nav ul li{
 }
 #check:checked ~  ul{
     left: 0;
+}
+.sub{
+    flex-direction: column;
+    margin: 50px auto;
+}
+.sub .sub_image{
+    width: 100%;
+    height: 50%;
+}
+.sub .sub_description{
+    width: 100%;
+    height: 50%;
+    padding-top: 15px;
+}
+.sub .sub_description h5{
+    font-size: 18px;
+    width: 100%;
 }
 }
 
@@ -241,4 +258,36 @@ button {
    button a{
     text-decoration: none;
     color: white;
+   }
+
+
+
+
+
+
+   .sub img{
+   width: 100%;
+   font-weight: 100;
+   height: 100%;
+   }
+   .sub_image{
+    width: 50%;
+   }
+   .sub{
+    display: flex;
+    height: 500px;
+    margin: 100px 50px;
+   }
+   .sub_description{
+    padding-top: 180px;
+    width: 60%;
+    
+   }
+   .sub_description h5{
+    width: 80%;
+    text-align: center;
+   margin: 0 auto;
+   font-size: 23px;
+   font-family: "Poppins", sans-serif;
+  font-weight: 30;
    }
