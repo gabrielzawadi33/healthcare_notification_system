@@ -132,7 +132,7 @@
                   <h5>Time</h5>
                 </div>
                 <div class="appointment_patients">
-                  {% for appointment in appointments %}
+                  {% for appointment in appointments_today %}
                   <div class="upcoming_content">
                     <div class="name_circle">{{ appointment.patient.name|slice:":2" }}</div>
                     <div class="name">{{ appointment.patient.name }}</div>

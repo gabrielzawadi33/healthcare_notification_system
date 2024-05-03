@@ -88,12 +88,13 @@ def login_doctor(request):
 
 def doctor_dashboard(request):
     doctor_id = request.session.get('user_id')
-    patients = Patient.objects.filter(doctor_id=doctor_id).exclude(appointment__doctor_id=doctor_id)
+    patients = Patient.objects.filter(doctor_id=doctor_id)
     patient_count = patients.count()
     today = timezone.now().date()
     appointments_today = Appointment.objects.filter(doctor_id=doctor_id, appointment_date=today)
+
     appointment_count = appointments_today.count()
-    context = {'patients': patients, 'patient_count': patient_count, 'doctor_id': doctor_id, 'appointment_count': appointment_count, 'today': today}
+    context = {'patients': patients, 'patient_count': patient_count, 'doctor_id': doctor_id, 'appointment_count': appointment_count, 'today': today, 'appointments_today': appointments_today}
     return render(request, 'healthcare/Doctor_After_login.html', context)
 
 
