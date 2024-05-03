@@ -54,7 +54,7 @@ table{
     margin: 15px 0;
     overflow: auto;
     min-width: 98%;
-    height: 100%;
+    height: auto;
     margin-left: 10px;
     font-size: 13px;
 }
