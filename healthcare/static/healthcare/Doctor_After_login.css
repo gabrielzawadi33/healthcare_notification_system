@@ -144,6 +144,9 @@ main{
 .title_today{
     text-align: center;
 }
+.today_title{
+    text-align: center;
+}
 .total_today{
     width: 45%;
     background-color: #FFFFFF;
