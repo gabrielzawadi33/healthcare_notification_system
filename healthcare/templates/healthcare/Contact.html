@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Contact.css">
+<link rel="stylesheet" href="{% static 'healthcare/Contact.css' %}">
 </head>
 <body>
 
@@ -19,13 +21,13 @@
         </label>
         <label for="logo" class="logo">HEALTH CARE</label>
         <ul>
-            <li><a href="Home_page.html">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="Contact.html" class="active">Contact</a></li>
+            <li><a href="contact/" class="active">Contact</a></li>
             <li><select id="dropdown">
                 <option value="">Signup</option>
-                <option value="signup_doctor.html">Doctor</option>
-                <option value="signup_nurse.html">Receptionist</option>
+                <option value="signup_doctor/">Doctor</option>
+                <option value="signup_nurse/">Receptionist</option>
             </select></li>
         </ul>
     </nav>
@@ -43,10 +45,10 @@
         <div class="media">
             <h4>Social media</h4>
             <div class="icon">
-                <img src="assets/Instagram_icon 1.svg" alt="">
-                <img src="assets/TwitterX.svg" alt="">
-                <img src="assets/LinkedIn.svg" alt="">
-                <img src="assets/Facebook.svg" alt="">
+                <img src="{% static 'healthcare/assets/Instagram_icon 1.svg' %}" alt="">
+                <img src="{% static 'healthcare/assets/TwitterX.svg' %}" alt="">
+                <img src="{% static 'healthcare/assets/LinkedIn.svg' %}" alt="">
+                <img src="{% static 'healthcare/assets/Facebook.svg' %}" alt="">
             </div>
         </div>
        </div>
@@ -54,12 +56,12 @@
         <h5>Get in Touch</h5>
         <form action="">
             <div class="input_field">
-                <img src="assets/Person.png" alt="">
+                <img src="{% static 'healthcare/assets/Person.png' %}" alt="">
             <input type="text" placeholder="Name">
             
             </div>
             <div class="input_field">
-                <img src="assets/Email.svg" alt="">
+                <img src="{% static 'healthcare/assets/Email.svg' %}" alt="">
                 <input type="email" placeholder="Email" required>
                 
                 </div>

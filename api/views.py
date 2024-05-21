@@ -193,3 +193,9 @@ def appointment_list(request, doctor_id):
         'appointments': appointments,
         'doctor_id': doctor_id  # Make sure this is included
     })
+
+def contact(request):
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'healthcare/Contact.html')

@@ -1,0 +1,72 @@
+[33mcommit 02b080c05c2fd95ac21eb9d0b8e18e0f773929e4[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: suleiman309 <suleimansalum309@gmail.com>
+Date:   Fri May 3 17:43:42 2024 +0300
+
+    slider implementation and some changes in css
+
+[33mcommit a041bc4c791a9bf75e8e949f5cb2c32f20eafe04[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: gabrielzawadi33 <gabrielzawadi33@gmail.con>
+Date:   Fri May 3 17:14:01 2024 +0300
+
+    updated appointment table
+
+[33mcommit 4a8742b734de29776c49d36030f92230b5ba84b8[m
+Author: suleiman309 <suleimansalum309@gmail.com>
+Date:   Sun Apr 28 00:19:03 2024 +0300
+
+    customization of home page title in css
+
+[33mcommit 2444f318568589dfbebbd82d4e7306027a427d39[m
+Merge: 4e211ef bb22e4e
+Author: suleiman309 <suleimansalum309@gmail.com>
+Date:   Sat Apr 27 23:01:58 2024 +0300
+
+    modification of css
+
+[33mcommit 4e211ef60716828139f58244875cdeb3ab936142[m
+Author: suleiman309 <suleimansalum309@gmail.com>
+Date:   Sat Apr 27 19:42:47 2024 +0300
+
+    improvement of styles in css files
+
+[33mcommit bb22e4e11f1ac40a754fe3935ba5db91e95e42d1[m
+Author: gabrielzawadi33 <gabrielzawadi33@gmail.con>
+Date:   Sat Apr 27 18:48:06 2024 +0300
+
+     appointments modifications
+
+[33mcommit 3abb4703b5dbfa9ca4a6d8a0a573504b7b33a016[m
+Author: gabrielzawadi33 <gabrielzawadi33@gmail.con>
+Date:   Fri Apr 26 18:20:41 2024 +0300
+
+    customize the patients list
+
+[33mcommit cab324028a244d905f53c3d2da01c6ae7ccca4a4[m
+Author: suleiman309 <suleimansalum309@gmail.com>
+Date:   Tue Apr 23 16:24:14 2024 +0300
+
+    making progress
+
+[33mcommit 5882aa3d45a0417d3a16e7c55f9748842eb73aed[m
+Author: GABRIEL ZAWADI MAGOMBE <131255324+gabrielzawadi33@users.noreply.github.com>
+Date:   Mon Apr 22 17:03:07 2024 +0300
+
+    Update README.md
+
+[33mcommit 5a9a1994a4da70defd8bae3dbbbcba6defa937bd[m
+Author: GABRIEL ZAWADI MAGOMBE <131255324+gabrielzawadi33@users.noreply.github.com>
+Date:   Mon Apr 22 17:01:45 2024 +0300
+
+    Create README.md
+
+[33mcommit a44ba5b3b40d47b23c4c3d126d477b4dc9601820[m
+Author: gabrielzawadi33 <gabrielzawadi33@gmail.con>
+Date:   Mon Apr 22 15:58:11 2024 +0300
+
+    new
+
+[33mcommit e9d34ef7f0d91c1f91af42a2db58db766f049489[m
+Author: gabrielzawadi33 <gabrielzawadi33@gmail.con>
+Date:   Sun Apr 14 21:16:28 2024 +0300
+
+    initial commit

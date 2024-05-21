@@ -172,7 +172,6 @@ nav ul li{
 }
 .sub{
     flex-direction: column;
-    border: 2px solid magenta;
 }
 .sub .slider{
     width: 100%;
