@@ -84,17 +84,20 @@ def login_doctor(request):
 
 
 
-
+from django.utils import timezone
 
 def doctor_dashboard(request):
     doctor_id = request.session.get('user_id')
     patients = Patient.objects.filter(doctor_id=doctor_id)
     patient_count = patients.count()
-    today = timezone.now().date()
-    appointments_today = Appointment.objects.filter(doctor_id=doctor_id, appointment_date=today)
 
+    today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    tomorrow_start = today_start + timezone.timedelta(days=1)
+
+    appointments_today = Appointment.objects.filter(doctor_id=doctor_id, appointment_date__range=(today_start, tomorrow_start))
     appointment_count = appointments_today.count()
-    context = {'patients': patients, 'patient_count': patient_count, 'doctor_id': doctor_id, 'appointment_count': appointment_count, 'today': today, 'appointments_today': appointments_today}
+
+    context = {'patients': patients, 'patient_count': patient_count, 'doctor_id': doctor_id, 'appointment_count': appointment_count, 'today': today_start, 'appointments_today': appointments_today}
     return render(request, 'healthcare/Doctor_After_login.html', context)
 
 
@@ -167,12 +170,14 @@ def doctor_schedule(request, doctor_id):
         patient_id = request.POST.get('patient_id')
         patient = Patient.objects.get(id=patient_id)
         appointment_date = request.POST.get('appointment_time')
-        appointment_date = datetime.datetime.strptime(appointment_date, "%Y-%m-%dT%H:%M").date()
+        
+        appointment_date = datetime.datetime.strptime(appointment_date, "%Y-%m-%dT%H:%M")
+        print(appointment_date)
         message = f"Dear {patient.name}, this is a friendly reminder for your next appointment on {appointment_date} at KCMC hospital. Please arrive 30 Minutes before your appointment in order to avoid any circumstance that might delay the appointment with the doctor."
         Appointment.objects.create(doctor=doctor, patient=patient, appointment_date=appointment_date, message=message)
         return redirect('doctor_patient_list')  # replace with the name of the template or URL to redirect to after successful appointment creation
     else:
-        return render(request, 'Doctor_schedule.html', {'doctor': doctor})
+        return render(request, 'Doctor_schedle.html', {'doctor': doctor})
 
 
 
