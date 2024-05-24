@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
+from django.utils import timezone
 
 class NurseManager(BaseUserManager):
     def create_user(self, email, name, IdNumber, password=None, **extra_fields):
@@ -95,3 +96,4 @@ class Appointment(models.Model):
     class Meta:
         unique_together = ('doctor', 'patient', 'appointment_date')
         db_table = 'appointment'
+
