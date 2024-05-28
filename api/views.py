@@ -2,6 +2,8 @@ import datetime
 from django.utils import timezone
 from venv import logger
 from django.shortcuts import redirect, render
+
+from api.task import check_appointments
 from .models import Appointment, Doctor, Nurse, Patient
 from .serializers import DoctorSerializers, NurseSerializers, PatientSerializer
 from rest_framework import  status
@@ -93,7 +95,7 @@ def doctor_dashboard(request):
 
     today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
     tomorrow_start = today_start + timezone.timedelta(days=1)
-
+    check_appointments.delay()
     appointments_today = Appointment.objects.filter(doctor_id=doctor_id, appointment_date__range=(today_start, tomorrow_start))
     appointment_count = appointments_today.count()
 
