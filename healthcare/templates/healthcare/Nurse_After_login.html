@@ -20,10 +20,10 @@
         </label>
         <label for="logo" class="logo">HEALTH CARE</label>
         <ul>
-                <li><a href="Nurse_After_login.html" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">New Patient</a></li>
+                <li><a href="{% url 'nurse_dashboard' %}" class="active"><img src="{% static 'healthcare/assets/patient.svg' %}" alt="">New Patient</a></li>
                 <li><a href="{% url 'patient_list' %}"><img src="{% static 'healthcare/assets/patient list.svg' %}" alt="">Patients List</a></li>
                 <li><a href="#"><img src="{% static 'healthcare/assets/Medical information.svg' %}" alt="">Medication</a></li>
-                <li><a href="Home_page.html"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
+                <li><a href="{% url 'home' %}"><img src="{% static 'healthcare/assets/Logout.svg' %}" alt="">Log out</a></li>
         </ul>
     </nav>
     <div class="main">
