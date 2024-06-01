@@ -87,24 +87,29 @@
                     <h4>Appointment</h4>
                     <div class="day">Today <img src="{% static 'healthcare/assets/Drop Down.svg' %}" alt=""></div>
                 </div>
-
-                <div class="appointment_subtitle">
-                  <h5>Patient</h5>
-                  <h5>Name/Diagnosis</h5>
-                  <h5>Time</h5>
-                </div>
-                <div class="appointment_patients">
-                  {% for appointment in appointments_today %}
-                  <div class="upcoming_content">
-                    <div class="name_circle">{{ appointment.patient.name|slice:":2" }}</div>
-                    <div class="name">{{ appointment.patient.name }}</div>
-                    <div class="time">{{ appointment.appointment_date|date:"H:i" }}</div>
-                  </div>
-                  {% endfor %}
-                </div>
-                 
                 
-                
+                <div class="table_content">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Patient</th>
+                      <th class="name">Name/Diagnosis</th>
+                      <th>Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for appointment in appointments_today %}
+                    <tr>
+        
+                      <td><div class="name_circle" style="margin: 0 auto;">{{ appointment.patient.name|slice:":2" }}</div></td>
+                      <td class="name">{{ appointment.patient.name }}</td>
+                      <td><div class="time" style="margin: 0 auto;">{{ appointment.appointment_date|date:"H:i" }}</div></td>
+                     
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
                 </div>
             </div>
         </main>

@@ -17,17 +17,17 @@
     <nav>
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
-            <i><img src="assets/hamburger-menu.svg" alt=""></i>
+            <i><img src="{% static 'healthcare/assets/hamburger-menu.svg' %}" alt=""></i>
         </label>
         <label for="logo" class="logo">HEALTH CARE</label>
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="contact/" class="active">Contact</a></li>
+            <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
             <li><select id="dropdown">
                 <option value="">Signup</option>
-                <option value="signup_doctor/">Doctor</option>
-                <option value="signup_nurse/">Receptionist</option>
+                <option value="{% url 'signup_doctor' %}">Doctor</option>
+                <option value="{% url 'signup_nurse' %}">Receptionist</option>
             </select></li>
         </ul>
     </nav>
