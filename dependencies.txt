@@ -1,0 +1,12 @@
+pip install mysqlclient
+sudo apt install -y erlang
+sudo apt install rabbitmq-server
+pip install celery redis
+pip install django
+
+
+
+
+
+celery -A your_project_name worker --loglevel=info
+celery -A your_project_name beat --loglevel=info
