@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'api',
     'healthcare',
     'rest_framework',
+    'rest_framework.authtoken',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Dar_es_Salaam'
 
 USE_I18N = True
 
@@ -152,3 +154,6 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute='*/1'),
     },
 }
+
+
+ASGI_APPLICATION = 'healthcare.routing.application'
