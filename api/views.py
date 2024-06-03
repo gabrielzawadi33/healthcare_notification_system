@@ -2,7 +2,8 @@ import datetime
 from django.utils import timezone
 from venv import logger
 from django.shortcuts import redirect, render
-
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 from api.task import check_appointments
 from .models import Appointment, Doctor, Nurse, Patient
 from .serializers import DoctorSerializers, NurseSerializers, PatientSerializer
@@ -12,6 +13,11 @@ from rest_framework.response import Response
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password
 from rest_framework.views import APIView
+from channels.generic.websocket import AsyncWebsocketConsumer
+import json
+
+
+channel_layer = get_channel_layer()
 
 def home(request):
     return render(request, 'healthcare/Home_page.html')
@@ -86,17 +92,31 @@ def login_doctor(request):
 
 
 
-from django.utils import timezone
-
 def doctor_dashboard(request):
     doctor_id = request.session.get('user_id')
     patients = Patient.objects.filter(doctor_id=doctor_id)
     patient_count = patients.count()
+    now = timezone.now()
+    print(now)
 
-    today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    tz = timezone.get_current_timezone()
+
+    print(tz)
+
+    now_local = now.astimezone(tz)
+    print(now_local)
+
+    today_start = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
+
     tomorrow_start = today_start + timezone.timedelta(days=1)
-    check_appointments.delay()
-    appointments_today = Appointment.objects.filter(doctor_id=doctor_id, appointment_date__range=(today_start, tomorrow_start))
+ 
+
+    # Get appointments for today, sorted by appointment_date
+    appointments_today = Appointment.objects.filter(
+        doctor_id=doctor_id, 
+        appointment_date__range=(now_local, tomorrow_start)
+    ).order_by('appointment_date')
+
     appointment_count = appointments_today.count()
 
     context = {'patients': patients, 'patient_count': patient_count, 'doctor_id': doctor_id, 'appointment_count': appointment_count, 'today': today_start, 'appointments_today': appointments_today}
@@ -128,6 +148,11 @@ def register_patient(request):
         patient = Patient(name=name, patient_id=patient_id, address=address, doctor=doctor, date_of_birth=date_of_birth, gender= gender)
 
         patient.save()
+
+        # Send a message to the "updates" group
+        async_to_sync(channel_layer.group_send)(
+            "updates", {"type": "patient.registered", "patient_id": patient.id}
+        )
 
         messages.success(request, 'Patient registered successfully')
         return redirect('nurse_dashboard')

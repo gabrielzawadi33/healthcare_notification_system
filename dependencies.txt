@@ -1,0 +1,47 @@
+pip install mysqlclient
+sudo apt install -y erlang
+sudo apt install rabbitmq-server
+pip install celery redis
+pip install django
+pip install channels channels_redis
+
+
+
+#starting the rabbitserver
+
+sudo systemctl enable rabbitmq-server
+sudo systemctl start rabbitmq-server
+
+#checking status of the rabbit server to ensure it is running
+sudo systemctl status rabbitmq-server
+
+celery -A healthcare worker --loglevel=info
+celery -A healthcare beat --loglevel=info
+
+
+@@@@ admin login
+username : admin
+password:  admin
+
+how to reset the admin password
+
+    1. run in shell
+    python manage.py shell
+
+    2.enter the folleoring
+    from django.contrib.auth.models import User
+    user = User.objects.get(username='your_username')
+    user.set_password('new_password')
+    user.save()
+
+    3. exit
+        exit()
+
+
+
+asycronous work flow
+
+1.installed the channnel reddis
+2. created the  routing.py in the pproject directory
+3. created consummers.py in the app directory
+4. customizing the views

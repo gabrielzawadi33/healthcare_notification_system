@@ -76,10 +76,21 @@
                 </div>
                 <div class="upcoming">
                   <h4>Upcoming</h4>
+                  
+                  
                   <div class="upcoming_content">
-                    <div class="name_circle">BT</div>
-                    <div class="name">Baraka Tinnoh</div>
-                    <div class="time">13:30</div>
+                    
+                    {% if appointments_today %}
+
+                      <div class="name_circle">{{ appointments_today.0.patient.name|slice:":2" }}</div>
+                      <div class="name">{{ appointments_today.0.patient.name }}</div>
+                      <div class="time">{{ appointments_today.0.appointment_date|date:"H:i" }}</div>
+
+                    {% else %}
+
+                    <p>No upcoming appointments for today.</p>
+
+                    {% endif %}
                   </div>
                 </div>
                 <div class="appointment">
@@ -99,13 +110,17 @@
                   </thead>
                   <tbody>
                     {% for appointment in appointments_today %}
-                    <tr>
-        
-                      <td><div class="name_circle" style="margin: 0 auto;">{{ appointment.patient.name|slice:":2" }}</div></td>
-                      <td class="name">{{ appointment.patient.name }}</td>
-                      <td><div class="time" style="margin: 0 auto;">{{ appointment.appointment_date|date:"H:i" }}</div></td>
-                     
-                    </tr>
+
+                      {% if not forloop.first %}
+                        <tr>
+            
+                          <td><div class="name_circle" style="margin: 0 auto;">{{ appointment.patient.name|slice:":2" }}</div></td>
+                          <td class="name">{{ appointment.patient.name }}</td>
+                          <td><div class="time" style="margin: 0 auto;">{{ appointment.appointment_date|date:"H:i" }}</div></td>
+                        
+                        </tr>
+                      {% endif %}
+                      
                     {% endfor %}
                   </tbody>
                 </table>
