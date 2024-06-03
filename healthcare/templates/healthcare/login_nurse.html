@@ -12,19 +12,6 @@
     <link rel="stylesheet" href="{% static 'healthcare/login_doctor.css' %}">
 </head>
 <body>
-    <!-- <div class="main">
-        <h4>Receptionist Login Form</h4>
-        <form method="post" action="{% url 'login_nurse' %}">
-            {% csrf_token %}
-            <label for="email">Email</label>
-            <input type="email" name="email" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
-            <h5 class="forgot">Forgot Password?</h5>
-            <input type="submit" value="Sign In">
-            <h5><a href="{%  url 'signup_nurse' %}">Don’t have account?  Sign up</a></h5>
-        </form>
-    </div> -->
     <div class="login-box">
         <p>Login as Receptionist</p>
         <form method="post" action="{% url 'login_nurse' %}">

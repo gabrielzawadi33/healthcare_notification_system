@@ -161,30 +161,6 @@ footer .col .input {
   footer .copy{
     text-align: center;
   }
-/* footer{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: auto;
-    margin-top: 20px;
-    height: 10px;
-}
-footer .col{
-    border-right: 1px solid black;
-    text-align: center;
-}
-footer img{
-    width: 30px;
-    height: 30px;
-    margin: 10px 20px;
-    cursor: pointer; 
-}
-footer h4{
-    font-size: 15px;
-    font-weight: bold;
-}
-footer p{
-    margin-top: 10px;
-} */
 .slider {
  
     width: 50%;
@@ -283,34 +259,6 @@ footer .col .social_media{
         margin: 0 20px;
     }
     }
-
-@media (max-width: 480px) {
-
-  
-  /* footer .col {
-    font-size: 12px;
-    
-}
-  footer img {
-    width: 20px;
-    height: 20px; 
-  } */
-  
-  
-}
-
-
-
-
-/* .content button{
-    color: white;
-    background-color: #5CADDA;
-    border-radius: 5px;
-    width: 160px;
-    height: 35px;
-} */
-
-
 
 
 
