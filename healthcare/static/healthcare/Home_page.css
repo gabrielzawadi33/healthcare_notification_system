@@ -98,9 +98,70 @@ select{
 .content p{
     margin-bottom: 15px;
 }
-
-
-footer{
+.allcontent{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    margin-top: 20px;
+    height: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+footer .col{
+    background-color: #D9D9D9;
+}
+footer .col h2{
+    margin: 10px auto;
+}
+footer .col h3{
+    margin: 10px auto;
+}
+footer .col hr{
+    width: 350px;
+    margin-bottom: 10px;
+}
+footer img{
+    width: 27px;
+    height: 27px;
+    margin: 10px 20px;
+    cursor: pointer; 
+}
+footer .col .input {
+    max-width: 190px;
+    padding: 15px;
+    font-size: 17px;
+    color: black;
+    border-top-left-radius: .5em;
+    border-bottom-left-radius: .5em;
+    border: 2px solid #747171;
+    margin-right: -10px;
+    height: 15px;
+  }
+  
+  footer .col .btn{
+    border: none;
+    background-color: #1363DF;
+    text-decoration: none;
+    padding: 10px;
+    padding-bottom: 17px;
+    font-size: 17px;
+    color: #fff;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+    cursor: pointer;
+    height: 40px;
+  }
+  footer .col  .icons_title{
+    display: flex;
+    margin-top: 0px;
+  }
+  footer .col  .icons_title p{
+    line-height: 50px;
+  }
+  footer .copy{
+    text-align: center;
+  }
+/* footer{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: auto;
@@ -123,7 +184,7 @@ footer h4{
 }
 footer p{
     margin-top: 10px;
-}
+} */
 .slider {
  
     width: 50%;
@@ -192,6 +253,26 @@ nav ul li{
     font-size: 18px;
     width: 100%;
 }
+
+.allcontent{
+    grid-template-columns: repeat(1,1fr);
+    font-size: 14px;
+}
+footer .col h3{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+footer .col hr{
+    width: 100%;
+}
+footer .col .input {
+    height: 10px;
+    margin-left: 10px;
+}
+footer .col .social_media{
+    text-align: center;
+}
 }
 
 @media (max-width: 950px){
@@ -204,15 +285,16 @@ nav ul li{
     }
 
 @media (max-width: 480px) {
-  /* Styles for very small screens */
-  footer .col {
-    font-size: 12px; /* Reduce font size for better fit */
+
+  
+  /* footer .col {
+    font-size: 12px;
     
 }
   footer img {
     width: 20px;
-    height: 20px; /* Reduce image size */
-  }
+    height: 20px; 
+  } */
   
   
 }
@@ -251,6 +333,7 @@ button {
     color: white;
     margin-bottom: 10px;
     margin-right: 8px;
+    cursor: pointer;
    }
    
    button:before {
