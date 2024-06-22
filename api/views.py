@@ -150,9 +150,9 @@ def register_patient(request):
         patient.save()
 
         # Send a message to the "updates" group
-        async_to_sync(channel_layer.group_send)(
-            "updates", {"type": "patient.registered", "patient_id": patient.id}
-        )
+        # async_to_sync(channel_layer.group_send)(
+        #     "updates", {"type": "patient.registered", "patient_id": patient.id}
+        # )
 
         messages.success(request, 'Patient registered successfully')
         return redirect('nurse_dashboard')

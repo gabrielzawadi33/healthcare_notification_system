@@ -39,7 +39,7 @@
 
         <main>
             <h4>New Patient</h4>
-            <form action="{% url 'register_patient' %}" method="post">
+            <form action="{% url 'register_patient' %}" method="post" id="myForm" onsubmit="return validateForm()">
                 {% csrf_token %}
                 <div class="content_form">
                                 <div class="form_divider1">
@@ -68,7 +68,7 @@
                                     <label for="">Date of Birth</label>
                                     <input type="date" name="date_of_birth" required>
                                     <label for="">Phone NO.</label>
-                                    <input type="text" name="phone_number">
+                                    <input type="text" name="phone_number" id="phone">
                                     <label for="">NHIF</label>
                                     <input type="text" name="health_insurance">
                                     <label for="">Room No.</label>
@@ -89,6 +89,49 @@
         document.getElementById('roomNo').value = selectedOption.getAttribute('data-room');
         document.getElementById('roomNoDisplay').value = selectedOption.getAttribute('data-room');
     });
+    
+    function validatePhone() {
+    // Get reference to the phone number input
+    const phoneInput = document.getElementById('phone');
+  
+    // Regular expression for 10-digit phone numbers starting with 0
+    const phoneRegex = /^0\d{9}$/;
+  
+    // Check if the phone number matches the regular expression
+    if (!phoneRegex.test(phoneInput.value)) {
+      alert('Invalid phone number. Please enter a valid 10-digit phone number starting with 0.');
+      phoneInput.focus();
+      return false;
+    }
+    // Phone number is valid, allow form submission
+    return true;
+  }
+
+
+    const form = document.getElementById('myForm');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent default form submission
+ 
+
+  const formData = new FormData(form); // Create FormData object
+
+  fetch('/register_patient/', {  // Replace with your actual URL
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())  // Parse JSON response (if applicable)
+  .then(data => {
+    // Handle successful response (e.g., display success message)
+    console.log('Success:', data);
+  })
+  .catch(error => {
+    // Handle errors (e.g., display error message)
+    console.error('Error:', error);
+  });
+
+  form.reset(); // Clear the form after submission
+});
+
     </script>
 </body>
 </html>
