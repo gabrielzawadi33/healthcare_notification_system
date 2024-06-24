@@ -84,7 +84,7 @@
 
                       <div class="name_circle">{{ appointments_today.0.patient.name|slice:":2" }}</div>
                       <div class="name">{{ appointments_today.0.patient.name }}</div>
-                      <div class="time">{{ appointments_today.0.appointment_date|date:"H:i" }}</div>
+                      <div class="time">{{ appointments_today.0.adjusted_appointment_date|date:"H:i" }}</div>
 
                     {% else %}
 
@@ -111,13 +111,15 @@
                   <tbody>
                     {% for appointment in appointments_today %}
 
-                    {% if not forloop.first %}
-                    <tr>
-                        <td><div class="name_circle" style="margin: 0 auto;">{{ appointment.patient.name|slice:":2" }}</div></td>
-                        <td class="name">{{ appointment.patient.name }}</td>
-                        <td><div class="time" style="margin: 0 auto;">{{ appointment.adjusted_appointment_date|date:"H:i" }}</div></td>
-                    </tr>
-                    {% endif %}
+                      {% if not forloop.first %}
+                        <tr>
+            
+                          <td><div class="name_circle" style="margin: 0 auto;">{{ appointment.patient.name|slice:":2" }}</div></td>
+                          <td class="name">{{ appointment.patient.name }}</td>
+                          <td><div class="time" style="margin: 0 auto;">{{ appointments_today.adjusted_appointment_date|date:"H:i" }}</div></td>
+                        
+                        </tr>
+                      {% endif %}
                       
                     {% endfor %}
                   </tbody>

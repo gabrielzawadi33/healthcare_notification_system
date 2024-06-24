@@ -105,7 +105,7 @@ def doctor_dashboard(request):
 
     # Assuming the current timezone is the correct one
     tz = timezone.get_current_timezone()
-    now_local = now.astimezone(tz) 
+    now_local = now.astimezone(tz) + timedelta(hours=3)
 
     today_start = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
     tomorrow_start = today_start + timedelta(days=1)
