@@ -1,7 +1,8 @@
-from django.contrib.auth.hashers import make_password
-from django.db import IntegrityError
-from rest_framework import serializers
-from .models import Appointment, Doctor, Nurse
+from django.contrib.auth.hashers import make_password # type: ignore
+from django.db import IntegrityError # type: ignore
+from rest_framework import serializers # type: ignore
+from .models import Appointment, Doctor, Nurse, Patient
+
 
 
 
@@ -28,11 +29,6 @@ class DoctorSerializers(serializers.ModelSerializer):
         validated_data['password'] = make_password(validated_data['password'])
         return Doctor.objects.create(**validated_data)
     
-
-
-# serializers.py
-from rest_framework import serializers
-from .models import Patient
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
