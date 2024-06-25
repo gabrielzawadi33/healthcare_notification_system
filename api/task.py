@@ -19,8 +19,9 @@ def check_appointments():
     if not upcoming_appointments:
         print("No upcoming appointments")
         body = "You have no upcoming appointments"
-        to = "+255763901464"
+        to = "+255787874666"
         send_sms_via_beem(body, to)
     else:
         for appointment in upcoming_appointments:
             print(f"Upcoming appointment: {appointment.id} at {appointment.appointment_date}")
+    
