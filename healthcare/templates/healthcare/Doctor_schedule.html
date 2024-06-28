@@ -27,7 +27,9 @@
                 <input type="hidden" name="patient_id" value="{{ patient.id }}">
                 <input type="datetime-local" id="inputDatetime" name="appointment_time" required>
                 <div class="sms">
-                    <p>Dear {{ patient.name }}, this is a friendly reminder for your next appointment on <span id="displayDatetime" style="color: blue;"></span> at KCMC hospital. Please arrive 30 Minutes before your appointment in order to avoid any circumstance that might delay the appointment with the doctor.</p>
+                    <p>Ndugu {{ patient.name }}, Tunakukumbusha kuhusu uteuzi wako uliopangwa na <span style="color: blue;">Dr. {{doctor.name}}</span> siku ya    
+                        <span id="displayDatetime" style="color: blue;"></span> katika Hospitali ya KCMC. 
+                         Ili kuepuka usumbufu wowote, fika mapema dakika 30 kukamilisha taratibu.</p>
                 </div>
                 <button class="bt" id="bt" type="submit">
                     <span class="msg" id="msg"></span>
@@ -42,13 +44,43 @@
 
     <script>
                 const inputDatetime = document.getElementById('inputDatetime');
-        const displayDatetime = document.getElementById('displayDatetime');
+const displayDatetime = document.getElementById('displayDatetime');
 
-        inputDatetime.addEventListener('change', function() {
-            const selectedDatetime = new Date(this.value);
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-            displayDatetime.textContent =  selectedDatetime.toLocaleDateString('en-US', options);
-        });
+function getFormattedTime(selectedDatetime) {
+  const hour = selectedDatetime.getHours();
+  const minute = selectedDatetime.getMinutes();
+  const period = getPeriod(hour);
+
+  return `${hour}:${minute} ${period}`;
+}
+
+function getPeriod(hour) {
+  if (hour < 12) {
+    return "asubuhi"; // Morning (before noon)
+  } else if (hour < 18) {
+    return "mchana"; // Afternoon (noon to evening)
+  } else {
+    return "jioni"; // Evening
+  }
+}
+
+inputDatetime.addEventListener('change', function() {
+  const selectedDatetime = new Date(this.value);
+
+  const options = {
+    weekday: 'long', // Use 'full' for full weekday name (Jumatatu)
+    year: 'numeric',
+    month: 'long', // Use 'short' for abbreviated month (Jun)
+    day: 'numeric',
+  };
+
+  // Set Swahili locale for formatting
+  const formattedDate = selectedDatetime.toLocaleDateString('sw-TZ', options);
+  const formattedTime = getFormattedTime(selectedDatetime);
+
+  displayDatetime.textContent = `${formattedDate}, ${formattedTime}`;
+});
+
 
 
 
