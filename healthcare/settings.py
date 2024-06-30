@@ -81,6 +81,8 @@ WSGI_APPLICATION = 'healthcare.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+WSGI_APPLICATION = 'healthcare.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
