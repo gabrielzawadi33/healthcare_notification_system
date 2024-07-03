@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from celery.schedules import crontab # type: ignore
-
-
+import django_heroku
+import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,13 +86,8 @@ WSGI_APPLICATION = 'healthcare.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'health_care',
-        'USER':'root',
-        'PASSWORD':'',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -159,3 +155,8 @@ CELERY_BEAT_SCHEDULE = {
 
 
 ASGI_APPLICATION = 'healthcare.routing.application'
+
+STAIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS =(os.PATH.join(BASE_DIR, 'static'),)
+django_heroku.settings(locals())
+
