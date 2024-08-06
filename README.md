@@ -1,6 +1,4 @@
-Certainly! Below is a basic README template for your Django project running on XAMPP server with MySQL:
 
----
 
 # Django Project Installation Guide
 
